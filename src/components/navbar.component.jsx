@@ -56,9 +56,14 @@ const handleUserNavPanel = () => {
           </button>
 
           {/* Write Link */}
-          <Link to="/editor" className="hidden md:flex gap-2 link">
+          <Link to="/doc-editor" className="hidden md:flex gap-2 link">
             <i className="fi fi-rr-file-edit"></i>
-            <p>Write</p>
+            <p>Write Doc</p>
+          </Link>
+
+          <Link to="/api-editor" className="hidden md:flex gap-2 link">
+          <i className="fi fi-rr-api"></i>
+            <p>Make Api doc</p>
           </Link>
 
           {
