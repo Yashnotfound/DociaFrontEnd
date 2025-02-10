@@ -1,11 +1,11 @@
 import { useRef,useContext } from "react";
-import AnimationWrapper from "../common/page-animation";
-import InputBox from "../components/input.component";
+import AnimationWrapper from "../../common/utils/page-animation";
+import InputBox from "../../common/components/input.component";
 import { Link, Navigate } from "react-router-dom";
 import {toast,Toaster} from 'react-hot-toast';
 import axios from "axios";
-import { storeInSession } from "../common/session";
-import { UserContext } from "../App";
+import { storeInSession } from "../../common/utils/session";
+import { UserContext } from "../../App";
 
 
 const UserAuthForm = ({ type }) => {
@@ -66,7 +66,7 @@ const UserAuthForm = ({ type }) => {
   return (
     userAuth && userAuth.accessToken?
    <Navigate to={"/"} />
-   
+
     :
 
     <AnimationWrapper keyValue={type}>

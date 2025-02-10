@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import AnimationWrapper from "../common/page-animation";
+import AnimationWrapper from "../utils/page-animation";
 import { Link } from "react-router-dom";
-import { UserContext } from "../App";
-import { removeFromSession } from "../common/session";
+import { UserContext } from "../../App";
+import { removeFromSession } from "../utils/session";
 
 const UserNavigationPanel = () => {
 

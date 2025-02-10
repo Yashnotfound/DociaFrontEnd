@@ -1,9 +1,8 @@
 import { useState, useContext } from "react";
-import logo from "../imgs/logo.png";
+import logo from "../../assets/imgs/logo.png";
 import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
-import { UserContext } from "../App";
-import profile_img from "../imgs/user.png";
+import { UserContext } from "../../App";
 import UserNavigationPanel from "./user-navigation.component";
 
 const Navbar = () => {
@@ -72,7 +71,7 @@ const handleUserNavPanel = () => {
                 {/* when user is logged in */}
                  <div className="relative" onClick={handleUserNavPanel} onBlur={handleBlur}>
                             <button className="w-12 h-12 mt-1">
-                                <img src={profile_img} className="w-full h-full object-cover rounded-full" />
+                            <i className="fi fi-rr-user"></i>
                             </button>
                             {
                                 userNavPanel ? <UserNavigationPanel />

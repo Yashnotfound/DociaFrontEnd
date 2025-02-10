@@ -1,9 +1,10 @@
 import React, { useState, useContext } from "react";
-import { UserContext } from "../App";
+import { UserContext } from "../../../../App";
 import axios from "axios";
 import MDEditor from "@uiw/react-md-editor";
 import { Navigate, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import AnimationWrapper from "../../../../common/utils/page-animation";
 
 const Editor = () => {
   const {
@@ -12,12 +13,13 @@ const Editor = () => {
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const navigate = useNavigate(); // React Router's navigation hook
+  const [description, setDescription] = useState("");
+  const navigate = useNavigate();
 
   // Function to handle publishing the document
   const handlePublish = async () => {
-    if (!title || !content) {
-      toast.error("Title and content are required!");
+    if (!title || !content || !description) {
+      toast.error("Title, content and description are required!");
       return;
     }
 
@@ -26,7 +28,8 @@ const Editor = () => {
         "http://localhost:8080/api/documents",
         {
           title,
-          content, // Save markdown directly
+          content,
+          description,
           type: "GENERAL",
         },
         {
@@ -56,8 +59,8 @@ const Editor = () => {
   }
 
   return (
-    <>
-      {/* Toast Container */}
+   <AnimationWrapper>
+     <>
       <Toaster />
 
       {/* Navbar */}
@@ -83,8 +86,8 @@ const Editor = () => {
         </h1>
 
         {/* Title Input */}
-        <div className="mb-4">
-          <label htmlFor="title" className="block text-lg font-medium text-gray-700">
+        <div className="mb-6">
+          <label htmlFor="title" className="mt-2 block text-lg font-medium text-gray-700">
             Title
           </label>
           <input
@@ -95,6 +98,18 @@ const Editor = () => {
             placeholder="Enter document title"
             className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
           />
+        {/* Description Input */}
+          <label htmlFor="title" className="mt-2 block text-lg font-medium text-gray-700">
+            Description
+          </label>
+          <input
+            type="text"
+            id="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            placeholder="Enter document description"
+            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+          />
         </div>
 
         {/* Markdown Editor */}
@@ -102,10 +117,11 @@ const Editor = () => {
           <label className="block text-lg font-medium text-gray-700 mb-2">
             Content
           </label>
-          <MDEditor value={content} onChange={setContent} height={400} />
+          <MDEditor value={content} onChange={setContent} height={600}/>
         </div>
       </div>
     </>
+   </AnimationWrapper>
   );
 };
 
