@@ -6,7 +6,7 @@ import { lookInSession } from "./common/utils/session";
 import { useState } from "react";
 import Editor from "./pages/docs/general/create/doc_creator.page";
 import Homepage from "./pages/homepage/homepage.page";
-import DocumentView from "./pages/docs/general/displaydocs/documentView.pages";
+import DocumentView from "./pages/docs/general/displayDocs/documentView.pages";
 
 export const UserContext = createContext({});
 
@@ -33,7 +33,7 @@ const App = () => {
           <Route index element={<Homepage />} />
 
           {/* Signup Page */}
-          <Route path="signup" element={<UserAuthForm type="Sign-up" />} />
+          <Route path="signup" element={<UserAuthForm type="Signup" />} />
 
           {/* Login Page */}
           <Route path="login" element={<UserAuthForm type="Login" />} />

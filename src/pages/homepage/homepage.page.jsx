@@ -56,9 +56,6 @@ const Homepage = () => {
       <DocCard title="General Documents" documents={generalDocs} />
       <DocCard title="API Documents" documents={apiDocs} />
       {accessToken && <DocCard title="Your Documents" documents={yourDocs} />}
-      <footer className="bg-gray-800 text-white py-6 text-center">
-        <p> {new Date().getFullYear()} Docia</p>
-      </footer>
     </>
   );
 };

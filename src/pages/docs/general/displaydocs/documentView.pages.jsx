@@ -9,7 +9,6 @@ const ViewDocument = () => {
   const [document, setDocument] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Fetch document details
   useEffect(() => {
     const fetchDocument = async () => {
       try {
@@ -40,7 +39,7 @@ const ViewDocument = () => {
           Created on: {new Date(document.createdAt).toLocaleDateString()}
         </p>
         <div className="mt-6">
-          <MarkdownPreview source={document.content} />
+          <MarkdownPreview source={document.content} className="bg-transparent text-black" />
         </div>
       </div>
     </>
